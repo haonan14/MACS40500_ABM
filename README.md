@@ -3,7 +3,9 @@
 # SugarScape with Bourdieusian Habitus
 
 This is a modification of Epstein and Axtell's (1996) SugarScape model, extending it with a Bourdieusian habitus mechanism: agents develop an internalized disposition shaped by their trajectory of resource accumulation, which in turn shapes their future movement decisions.
+
 In the original SugarScape, agents are pure sugar-maximizers: at every step, they move to the visible cell with the most sugar, breaking ties by distance. Inequality emerges from the interaction between agent heterogeneity (vision, metabolism, endowment) and the spatial distribution of sugar.
+
 In this modified version, each agent additionally carries a habitus variable in [0, 1] that determines how it weighs sugar-gain versus travel-distance when moving:
 utility(cell) = habitus * sugar(cell) - (1 - habitus) * distance(cell)
 
