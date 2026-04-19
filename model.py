@@ -19,13 +19,13 @@ class SugarScapeModel(mesa.Model):
         x = sum(el * (n - ind) for ind, el in enumerate(sorted_sugars)) / (n * sum(sorted_sugars))
         return 1 + (1 / n) - 2 * x
     
-    #Mean habitus tracks the overall disposition climate
+    # mean habitus tracks the overall disposition climate
     def mean_habitus(self):
         if len(self.agents) == 0:
             return 0
         return sum(a.habitus for a in self.agents) / len(self.agents)
     
-    #Habitus variance tracks behavioral polarization (a high variance means agents have sorted into distinct dispositional "classes")
+    # habitus variance tracks behavioral polarization (a high variance means agents have sorted into distinct dispositional "classes")
     def habitus_variance(self):
         if len(self.agents) < 2:
             return 0
@@ -33,7 +33,7 @@ class SugarScapeModel(mesa.Model):
         mean = sum(habs) / len(habs)
         return sum((h - mean) ** 2 for h in habs) / len(habs)
     
-    #The habitus-sugar correlation is the signal for cumulative advantage / reproduction of inequality
+    # the habitus-sugar correlation is the signal for cumulative advantage / reproduction of inequality
     def habitus_sugar_correlation(self):
         if len(self.agents) < 2:
             return 0
@@ -121,7 +121,7 @@ class SugarScapeModel(mesa.Model):
         self.agents.shuffle_do("move")
         self.agents.shuffle_do("gather_and_eat")
         self.agents.shuffle_do("update_habitus")
-        ## Record population before death and count deaths
+        # record population before death and count deaths
         pop_before = len(self.agents)
         self.agents.shuffle_do("see_if_die")
         self.cumulative_deaths += pop_before - len(self.agents)
